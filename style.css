@@ -200,6 +200,10 @@ h2 {
     color: red;
 }
 
+.scroll_lock {
+    overflow: hidden;
+}
+
 
 /* searchbar */
 .search_bar {
@@ -328,7 +332,7 @@ hr {
 }
 
 /* language select */
-.lang_select {
+.lang_select_wrapper {
     width: 227px;
     height: 40px;
     background-color: #3B3B3B;
@@ -340,7 +344,7 @@ hr {
     background-repeat: no-repeat;
 }
 
-select {
+.lang_select {
     width: inherit;
     height: inherit;
     background-color: transparent;
@@ -361,9 +365,11 @@ select {
     text-align: left;
     padding-left: 50px;
     letter-spacing: 1;
+    cursor: pointer;
 }
 
-select::-ms-expand {
+
+.lang_select::-ms-expand {
     display: none;
 }
 
@@ -516,11 +522,12 @@ a {
 
     .popup_form_input,
     .popup_submit_button,
+    .popup_form_label,
     .popup_show_password_wrapper {
-        width: 130px;
+        width: 150px;
     }
 
     .popup_submit_button {
-        margin-left: 196px;
+        margin-left: 186px;
     }
 }
