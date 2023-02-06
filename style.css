@@ -522,12 +522,15 @@ a {
 
     .popup_form_input,
     .popup_submit_button,
-    .popup_form_label,
     .popup_show_password_wrapper {
-        width: 150px;
+        width: 165px;
+    }
+
+    .popup_form_label {
+        width: 130px;
     }
 
     .popup_submit_button {
-        margin-left: 186px;
+        margin-left: 170px;
     }
 }
