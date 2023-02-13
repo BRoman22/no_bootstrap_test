@@ -11,8 +11,8 @@
 
 <body>
     <div id="home"></div>
-    <header class="box1">
-        <nav class="box">
+    <header class="box">
+        <nav class="box1">
             <img src="img/logo.svg" alt="logo">
             <div class="login">
                 <div class="login_border">
@@ -187,26 +187,67 @@
         <div class="popup_container">
             <div class="popup_body">
                 <div class="popup_content">
-                    <h2>Войти</h2>
-                    <a class="popup_close">X</a>
-                    <form action="" method="post" class="popup_form">
+                    <img src="img/logo.svg" alt="logo" class="popup_logo">
+                    <h2>Добро пожаловать!</h2>
+                    <p class="popup_login_text">Зарегистрируйся, чтобы заказать</p>
+                    <a class="popup_close">
+                        <img src="img/close_cross_icon.png" alt="close_cross_icon" width="30px" height="30px">
+                    </a>
+                    <form action="" method="post" class="popup_form" novalidate>
                         <div class="popup_form_wrapper">
-                            <label class="popup_form_label" for="login">Введите логин</label>
-                            <input type="text" name="login" class="popup_form_input" placeholder="логин" maxlength="36">
+                            <input type="text" name="name" class="popup_form_input" placeholder="Имя">
                         </div>
                         <div class="popup_form_wrapper">
-                            <label class="popup_form_label" for="password">Введите пароль</label>
-                            <input type="password" name="password" class="popup_form_input" placeholder="пароль"
-                                maxlength="36">
+                            <input type="email" name="email" class="popup_form_input"
+                                placeholder="Электронная почта">
                         </div>
                         <div class="popup_form_wrapper">
-                            <label class="popup_form_label" for="checkbox">Показать пароль</label>
-                            <div class="popup_show_password_wrapper">
-                                <input type="checkbox" class="popup_show_password">
-                            </div>
+                            <input type="password" class="popup_form_input" placeholder="Пароль">
+                            <a class="popup_show_password">
+                                <img src="img/open_eye.png" alt="logo" class="popup_show_password_background">
+                                <img src="img/close_eye.png" alt="logo" class="popup_show_password_background unactive">
+                            </a>
+                        </div>
+                        <div class="popup_login_text">Уже есть аккаунт?<a class="popup_login_button"> Войти</a>
+                        </div>
+                        <div class="popup_form_wrapper">
+                            <button class="popup_submit_button" type="submit">Зарегистрироваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup">
+        <a class="popup_area"></a>
+        <div class="popup_container">
+            <div class="popup_body">
+                <div class="popup_content">
+                    <img src="img/logo.svg" alt="logo" class="popup_logo">
+                    <h2>Добро пожаловать!</h2>
+                    <p class="popup_login_text">Войдите, чтобы заказать</p>
+                    <a class="popup_close">
+                        <img src="img/close_cross_icon.png" alt="close_cross_icon" width="30px" height="30px">
+                    </a>
+                    <form action="" method="post" class="popup_form" novalidate>
+                        <div class="popup_form_wrapper">
+                            <input type="email" name="email" class="popup_form_input"
+                                placeholder="Электронная почта">
+                        </div>
+                        <div class="popup_form_wrapper">
+                            <input type="password" name="password" class="popup_form_input" placeholder="Пароль">
+                            <a class="popup_show_password">
+                                <img src="img/open_eye.png" alt="logo" class="popup_show_password_background">
+                                <img src="img/close_eye.png" alt="logo" class="popup_show_password_background unactive">
+                            </a>
+                        </div>
+                        <div class="popup_login_text">Нет аккаунта?<a class="popup_registration_button">
+                                Зарегистрироваться</a>
                         </div>
                         <div class="popup_form_wrapper">
                             <button class="popup_submit_button" type="submit">Войти</button>
+                        </div>
                     </form>
                 </div>
             </div>
