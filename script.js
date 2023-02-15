@@ -6,26 +6,56 @@ const registrationButton = document.querySelector('.popup_registration_button');
 const popupClose = document.querySelectorAll('.popup_area, .popup_close');
 const inputs = document.querySelectorAll('.popup_form_input');
 const showPassword = document.querySelectorAll('.popup_show_password');
-const toggleIconPassword = document.querySelectorAll('.popup_show_password_background')
-const email = [inputs[1], inputs[3]];
+const toggleIconPassword = document.querySelectorAll('.popup_show_password_background');
+const email = [inputs[0], inputs[3]];
+const errorMessage = document.querySelectorAll('.error_message');
+const password = [inputs[1], inputs[4]];
 
 
-email.forEach(e => e.addEventListener('input', function () {
-    let gg = this.value;
-    (gg.length < 6) ? e.classList.add('error') : e.classList.remove('error');
-}));
+function validate(elem, error, text) {
+    let regexp = /[0-9]/;
 
+    if (!regexp.test(elem.value)) {
+        elem.classList.add('error');
+        error.innerHTML = text;
+    } else {
+        elem.classList.remove('error');
+        error.innerHTML = '';
+    };
+}
+
+
+email[0].addEventListener('input', function () {
+    validate(email[0], errorMessage[0], 'Введите электронную почту');
+});
+
+email[1].addEventListener('input', function () {
+    validate(email[1], errorMessage[3], 'Введите электронную почту');
+});
+
+password[0].addEventListener('input', function () {
+    validate(password[0], errorMessage[1], 'Введите пароль');
+})
+
+password[1].addEventListener('input', function () {
+    validate(password[1], errorMessage[4], 'Введите пароль');
+})
+
+inputs[2].addEventListener('input', function () {
+    validate(inputs[2], errorMessage[2], 'Введите имя');
+})
 
 loginButton.forEach(e => e.onclick = () => {
-    popup[1].classList.add('open');
-    popup[0].classList.remove('open');
+    popup[0].classList.add('open');
+    popup[1].classList.remove('open');
     body.classList.add('scroll_lock');
 });
 
 registrationButton.onclick = () => {
-    popup[1].classList.remove('open');
-    popup[0].classList.add('open');
+    popup[0].classList.remove('open');
+    popup[1].classList.add('open');
 };
+
 
 popupClose.forEach(e => e.onclick = () => {
     popup.forEach(popup => popup.classList.remove('open'));

@@ -113,8 +113,8 @@ main {
 }
 
 .popup_content {
-    width: auto;
-    height: auto;
+    width: 320px;
+    height: 100%;
     border: 2px solid white;
     display: block;
     position: relative;
@@ -136,11 +136,11 @@ main {
 }
 
 .popup_form_wrapper {
-    height: auto;
-    margin: auto;
+    height: 77px;
     width: inherit;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    flex-direction: column;
 }
 
 .popup_close {
@@ -153,12 +153,12 @@ main {
 }
 
 .popup_form_input {
-    margin: auto;
+    margin-bottom: 17px;
 }
 
 .popup_form_input,
 .popup_submit_button {
-    width: 320px;
+    width: 100%;
     height: 60px;
     font-size: 18px;
     border: 1px solid #59BD5A;
@@ -182,6 +182,7 @@ main {
     color: #59BD5A;
     font-size: 18px;
     cursor: pointer;
+    margin-left: 4px;
 }
 
 .popup_show_password {
@@ -190,7 +191,7 @@ main {
     cursor: pointer;
     position: absolute;
     right: 110px;
-    bottom: 206px;
+    bottom: 220px;
     border: none;
 }
 
@@ -218,10 +219,14 @@ h2 {
     color: 000039;
     letter-spacing: 1px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
 .error {
     border: 1px solid red;
+    margin-bottom: 0;
 }
 
 .error::placeholder {
@@ -230,6 +235,12 @@ h2 {
 
 .scroll_lock {
     overflow: hidden;
+}
+
+.error_message {
+    font-size: 17px;
+    color: red;
+    letter-spacing: 1px;
 }
 
 
@@ -544,16 +555,37 @@ a {
     }
 
     .popup_body {
-        width: 370px;
+        width: 330px;
     }
 
     .popup_form_input,
-    .popup_submit_button,
-    .popup_show_password_wrapper {
-        width: 165px;
+    .popup_submit_button {
+        width: 100%;
     }
 
-    .popup_submit_button {
-        margin-left: 130px;
+    .popup_content {
+        width: 230px;
+        padding: 20 45px;
+    }
+
+    .popup_show_password {
+        right: 62px;
+        bottom: 170px;
+    }
+
+    .error_message {
+        letter-spacing: 0;
+    }
+
+    .popup_registration_question {
+        display: none;
+    }
+
+    .popup_form_wrapper {
+        margin-bottom: 0;
+    }
+
+    .popup_registration_button {
+        margin-left: 0;
     }
 }
