@@ -148,7 +148,7 @@ main {
     position: absolute;
     color: black;
     top: 35px;
-    right: 20px;
+    right: 40px;
     cursor: pointer;
 }
 
@@ -566,15 +566,17 @@ a {
     .popup_content {
         width: 230px;
         padding: 20 45px;
+        margin: auto;
     }
 
     .popup_show_password {
         right: 62px;
-        bottom: 170px;
+        bottom: 176px;
     }
 
     .error_message {
         letter-spacing: 0;
+        margin-bottom: 10px;
     }
 
     .popup_registration_question {
@@ -587,5 +589,10 @@ a {
 
     .popup_registration_button {
         margin-left: 0;
+    }
+
+    .popup_close {
+        right: 15px;
+        top: 15px;
     }
 }

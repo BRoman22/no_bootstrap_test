@@ -6,44 +6,46 @@ const registrationButton = document.querySelector('.popup_registration_button');
 const popupClose = document.querySelectorAll('.popup_area, .popup_close');
 const inputs = document.querySelectorAll('.popup_form_input');
 const showPassword = document.querySelectorAll('.popup_show_password');
-const toggleIconPassword = document.querySelectorAll('.popup_show_password_background');
-const email = [inputs[0], inputs[3]];
+const showPasswordIcon = document.querySelectorAll('.popup_show_password_background');
 const errorMessage = document.querySelectorAll('.error_message');
-const password = [inputs[1], inputs[4]];
+const regexp = /\w@{1}/;
+const regexp1 = /[0-9a-zА-я]/;
 
 
-function validate(elem, error, text) {
-    let regexp = /[0-9]/;
 
-    if (!regexp.test(elem.value)) {
+function getError(elem, error, text, regex) {
+
+    if (!regex.test(elem.value)) {
         elem.classList.add('error');
         error.innerHTML = text;
+        event.preventDefault();
     } else {
         elem.classList.remove('error');
         error.innerHTML = '';
     };
-}
+};
 
-
-email[0].addEventListener('input', function () {
-    validate(email[0], errorMessage[0], 'Введите электронную почту');
+inputs[0].addEventListener('input', function () {
+    getError(inputs[0], errorMessage[0], 'Некорректная почта', regexp);
 });
 
-email[1].addEventListener('input', function () {
-    validate(email[1], errorMessage[3], 'Введите электронную почту');
-});
-
-password[0].addEventListener('input', function () {
-    validate(password[0], errorMessage[1], 'Введите пароль');
-})
-
-password[1].addEventListener('input', function () {
-    validate(password[1], errorMessage[4], 'Введите пароль');
+inputs[1].addEventListener('input', function () {
+    getError(inputs[1], errorMessage[1], 'Введите пароль', regexp1);
 })
 
 inputs[2].addEventListener('input', function () {
-    validate(inputs[2], errorMessage[2], 'Введите имя');
+    getError(inputs[2], errorMessage[2], 'Введите имя', regexp1);
 })
+
+inputs[3].addEventListener('input', function () {
+    getError(inputs[3], errorMessage[3], 'Некорректная почта', regexp);
+});
+
+inputs[4].addEventListener('input', function () {
+    getError(inputs[4], errorMessage[4], 'Введите пароль', regexp1);
+})
+
+
 
 loginButton.forEach(e => e.onclick = () => {
     popup[0].classList.add('open');
@@ -56,69 +58,42 @@ registrationButton.onclick = () => {
     popup[1].classList.add('open');
 };
 
-
 popupClose.forEach(e => e.onclick = () => {
     popup.forEach(popup => popup.classList.remove('open'));
     body.classList.remove('scroll_lock');
 });
 
 
-function switchIcon(icon, input) {
+
+function switchIcon(input, icon) {
     if (input.type === 'password') {
         input.type = 'text';
-        icon[1].classList.remove('unactive');
-        icon[0].classList.add('unactive');
+        icon.forEach(e => e.classList.toggle('unactive'));
     } else {
         input.type = 'password';
-        icon[1].classList.add('unactive');
-        icon[0].classList.remove('unactive');
+        icon.forEach(e => e.classList.toggle('unactive'));
     }
 }
 
 showPassword[0].onclick = () => {
-    let toggle = [toggleIconPassword[0], toggleIconPassword[1]];
-    let inputPassword = inputs[2];
-
-    switchIcon(toggle, inputPassword);
+    let icon = [showPasswordIcon[0], showPasswordIcon[1]];
+    switchIcon(inputs[1], icon);
 }
 
 showPassword[1].onclick = () => {
-    let toggle = [toggleIconPassword[2], toggleIconPassword[3]];
-    let inputPassword = inputs[4];
-
-    switchIcon(toggle, inputPassword);
+    let icon = [showPasswordIcon[2], showPasswordIcon[3]];
+    switchIcon(inputs[4], icon);
 }
 
 
-function checkSpace(e) {
-    if (e.value === '') {
-        e.classList.add('error');
-        e.placeholder = 'Заполните поле';
-        event.preventDefault();
-    } else {
-        e.classList.remove('error');
-    }
-};
-
 
 form[0].onsubmit = function () {
-    let input = [inputs[0], inputs[1], inputs[2]];
-    let mail = email[0];
-
-    input.forEach(e => checkSpace(e));
-    if (mail.value.length < 6) {
-        mail.classList.add('error');
-        event.preventDefault();
-    }
+    getError(inputs[0], errorMessage[0], 'Некорректная почта', regexp);
+    getError(inputs[1], errorMessage[1], 'Введите пароль', regexp1);
 };
 
 form[1].onsubmit = function () {
-    let input = [inputs[3], inputs[4]];
-    let mail = email[1];
-
-    input.forEach(e => checkSpace(e));
-    if (mail.value.length < 6) {
-        mail.classList.add('error');
-        event.preventDefault();
-    }
+    getError(inputs[2], errorMessage[2], 'Некорректное имя', regexp1);
+    getError(inputs[3], errorMessage[3], 'Некорректная почта', regexp);
+    getError(inputs[4], errorMessage[4], 'Введите пароль', regexp1);
 };
